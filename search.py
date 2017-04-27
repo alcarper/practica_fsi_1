@@ -124,12 +124,12 @@ def graph_search(problem, fringe):
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
     # closed = {}
-    fringe.append(Node(problem.initial,
-                       heuristic_cost=distance(getattr(problem.graph, 'locations', None)[problem.initial],
-                                                getattr(problem.graph, 'locations', None)[problem.goal])))
-    count = 0;
+    fringe.append(Node(problem.initial)) #  ,
+                       # heuristic_cost=distance(getattr(problem.graph, 'locations', None)[problem.initial],
+                       #                          getattr(problem.graph, 'locations', None)[problem.goal])))
+    count = 0
     while fringe:
-        count = count+1
+        count += 1
         node = fringe.pop()
         if problem.goal_test(node.state):
             print ("numero de nodos visitados ", count)
@@ -137,7 +137,7 @@ def graph_search(problem, fringe):
         # if node.state not in closed:
         #     closed[node.state] = True
         fringe.extend(node.expand(problem))
-    print ("numero de nodos expandidos ",count)
+    print ("numero de nodos visitados ",count)
     return None
 
 

@@ -1,4 +1,4 @@
-class no_informed_list():
+class no_informed_list:
     def __init__(self):
         self.L = []
         self.start = 0
@@ -11,11 +11,11 @@ class no_informed_list():
             self.L.append(item)
 
     def pop(self):
-        less_cost = float('inf')
-        index=-1
+        lesser_cost = float('inf')
+        index = -1
         for i, item in enumerate(self.L):
-            if(item.path_cost<less_cost):
-                less_cost=item.path_cost
+            if item.path_cost < lesser_cost:
+                lesser_cost = item.path_cost
                 index = i
         if index == -1:
             return None
@@ -26,7 +26,7 @@ class no_informed_list():
         return len(self.L) - self.start
 
 
-class informed_list():
+class informed_list:
     def __init__(self):
         self.L = []
         self.start = 0
@@ -39,12 +39,12 @@ class informed_list():
             self.L.append(item)
 
     def pop(self):
-        less_cost = float('inf')
-        index=-1
+        lesser_cost = float('inf')
+        index = -1
         for i, item in enumerate(self.L):
             cost = item.path_cost+item.heuristic_cost
-            if(cost<less_cost):
-                less_cost=cost
+            if cost < lesser_cost:
+                lesser_cost = cost
                 index = i
         if index == -1:
             return None
