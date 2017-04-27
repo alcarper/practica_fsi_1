@@ -5,10 +5,11 @@ then create problem instances and solve them with calls to the various search
 functions."""
 
 from __future__ import generators
-from utils import *
 import random
 import sys
 import practica_1
+from utils import *
+
 
 
 # ______________________________________________________________________________
