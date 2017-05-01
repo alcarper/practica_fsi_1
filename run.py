@@ -9,8 +9,8 @@ ab = search.GPSProblem('A', 'B', search.romania)
 # print search.depth_first_graph_search(ab).path()
 # print search.iterative_deepening_search(ab).path()
 # print search.depth_limited_search(ab).path()
-print search.tree_and_jump(ab).path()
-print search.tree_and_jump_informed(ab).path()
+print search.branch_and_bound(ab).path()
+print search.informed_branch_and_bound(ab).path()
 
 #print search.astar_search(ab).path()
 

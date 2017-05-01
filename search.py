@@ -124,21 +124,18 @@ def graph_search(problem, fringe):
     """Search through the successors of a problem to find a goal.
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
-    # closed = {}
-    fringe.append(Node(problem.initial)) #  ,
-                       # heuristic_cost=distance(getattr(problem.graph, 'locations', None)[problem.initial],
-                       #                          getattr(problem.graph, 'locations', None)[problem.goal])))
+    fringe.append(Node(problem.initial))
     count = 0
     while fringe:
         count += 1
         node = fringe.pop()
         if problem.goal_test(node.state):
-            print ("numero de nodos visitados ", count)
+            print "numero de nodos visitados", count, " numero de nodos expandidos", fringe.max_number
             return node
         # if node.state not in closed:
         #     closed[node.state] = True
         fringe.extend(node.expand(problem))
-    print ("numero de nodos visitados ",count)
+    print "numero de nodos visitados", count, " numero de nodos expandidos", fringe.max_number
     return None
 
 
@@ -185,10 +182,11 @@ def iterative_deepening_search(problem):
             return result
 
 
-def tree_and_jump(problem):
+def branch_and_bound(problem):
     return graph_search(problem, practica_1.no_informed_list())
 
-def tree_and_jump_informed(problem):
+
+def informed_branch_and_bound(problem):
     return graph_search(problem, practica_1.informed_list())
 
 #______________________________________________________________________________

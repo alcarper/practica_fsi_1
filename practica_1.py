@@ -2,12 +2,16 @@ class no_informed_list:
     def __init__(self):
         self.L = []
         self.start = 0
+        self.max_number = 0
 
     def append(self, item):
         self.L.append(item)
+        self.max_number += 1
+
 
     def extend(self, items):
         for item in items:
+            self.max_number += 1
             self.L.append(item)
 
     def pop(self):
@@ -30,12 +34,15 @@ class informed_list:
     def __init__(self):
         self.L = []
         self.start = 0
+        self.max_number = 0
 
     def append(self, item):
         self.L.append(item)
+        self.max_number += 1
 
     def extend(self, items):
         for item in items:
+            self.max_number += 1
             self.L.append(item)
 
     def pop(self):
