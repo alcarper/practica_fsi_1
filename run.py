@@ -2,17 +2,26 @@
 
 import search
 
-ab = search.GPSProblem('A', 'B', search.romania)
+routes = {
+    "ab": search.GPSProblem('A', 'B', search.romania),
+    "bf": search.GPSProblem('B', 'F', search.romania),
+    "ch": search.GPSProblem('C', 'H', search.romania),
+    "eg": search.GPSProblem('E', 'G', search.romania),
+    "ba": search.GPSProblem('B', 'A', search.romania)
+}
 
+for route in routes.iterkeys():
+    print " --------- ",route, "-----------"
 
-# print search.breadth_first_graph_search(ab).path()
-# print search.depth_first_graph_search(ab).path()
-# print search.iterative_deepening_search(ab).path()
-# print search.depth_limited_search(ab).path()
-print search.branch_and_bound(ab).path()
-print search.informed_branch_and_bound(ab).path()
+    print "---- Anchura ----"
+    search.breadth_first_graph_search(routes[route]).path()
+    print "---- Profundidad ----"
+    search.depth_first_graph_search(routes[route]).path()
+    print "---- Ramificacion y poda no informada ----"
+    search.branch_and_bound(routes[route]).path()
+    print "---- Ramificacion y salto informado ----"
+    search.informed_branch_and_bound(routes[route]).path()
 
-#print search.astar_search(ab).path()
 
 # Result:
 # [<Node B>, <Node P>, <Node R>, <Node S>, <Node A>] : 101 + 97 + 80 + 140 = 418

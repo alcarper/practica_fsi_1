@@ -126,16 +126,17 @@ def graph_search(problem, fringe):
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
     fringe.append(Node(problem.initial))
     count = 0
+    closed = {}
     while fringe:
         count += 1
         node = fringe.pop()
         if problem.goal_test(node.state):
-            print "numero de nodos visitados", count, " numero de nodos expandidos", fringe.max_number
+            print "numero de nodos visitados", count
             return node
-        # if node.state not in closed:
-        #     closed[node.state] = True
-        fringe.extend(node.expand(problem))
-    print "numero de nodos visitados", count, " numero de nodos expandidos", fringe.max_number
+        if node.state not in closed:
+            closed[node.state] = True
+            fringe.extend(node.expand(problem))
+    print "numero de nodos visitados", count
     return None
 
 
